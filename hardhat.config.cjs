@@ -6,6 +6,7 @@ const { PRIVATE_KEY } = process.env;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.24",
+  paths: "./src/artifacts",
   networks: {
     hardhat: { chainI: 1337 },
     morphTestnet: {
