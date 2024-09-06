@@ -26,9 +26,7 @@ module.exports = {
     },
   },
   etherscan: {
-    apiKey: {
-      morphTestnet: ETHERSCAN_API_KEY,
-    },
+    apiKey: ETHERSCAN_API_KEY,
     customChains: [
       {
         networks: "morphTestnet",
@@ -39,8 +37,5 @@ module.exports = {
         },
       },
     ],
-  },
-  sourcify: {
-    enabled: true,
   },
 };
