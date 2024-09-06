@@ -1,5 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
+require("hardhat-deploy");
 
 const { PRIVATE_KEY } = process.env;
 
@@ -16,6 +17,11 @@ module.exports = {
       accounts: [PRIVATE_KEY],
       chainId: 2810,
       gasPrice: 2000000000,
+    },
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0,
     },
   },
 };
