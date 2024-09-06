@@ -1,0 +1,12 @@
+module.exports = async ({ getNamedAccounts, deployments }) => {
+  const { deploy, log } = deployments;
+  const { deployer } = await getNamedAccounts();
+  const args = [];
+  await deploy("QuoteDapp", {
+    contract: "QuoteDapp",
+    args: args,
+    from: deployer,
+    log: true, // Logs statements to console
+  });
+};
+module.exports.tags = ["QuoteDapp"];

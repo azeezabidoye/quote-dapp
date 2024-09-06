@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/QuoteDapp.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.24;\n\ncontract QuoteDapp {\n    // Events \n    event QuoteDapp__AddNewQuote(string username, string content);\n\n    // Errors\n    error QuoteNotFound();\n    \n    // Structure of the Quote to be posted\n    struct Quote {\n        string username;\n        string content;\n    }\n\n    // Array of quotes\n    Quote[] public quotes;\n\n    // Function for adding a new quote\n    function addQuote(string memory _username, string memory _content) public {\n        // Add new quote to Quotes Array\n        quotes.push(Quote(_username, _content));\n\n        // Emit new event\n        emit QuoteDapp__AddNewQuote(_username, _content);\n    }\n\n    // Function for getting quotes by their index \n    function getQuote(uint _index) public view returns (string memory, string memory) {\n        // Check for availability of quote\n        if (_index > quotes.length) {\n            revert QuoteNotFound();\n        }\n\n        // Create a new variable to store found quote\n        Quote storage quote = quotes[_index];\n\n        // Return quote if found \n        return (quote.username, quote.content);\n    }\n\n    // Function for getting the number of quotes available\n    function getQuoteCount() public view returns (uint) {\n        return quotes.length;\n    }\n}"
+    }
+  },
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
