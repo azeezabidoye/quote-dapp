@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-verify");
 require("dotenv").config();
 require("hardhat-deploy");
 
@@ -23,5 +24,20 @@ module.exports = {
     deployer: {
       default: 0,
     },
+  },
+  etherscan: {
+    apiKey: {
+      morphTestnet: "anything",
+    },
+    customChains: [
+      {
+        networks: "morphTestnet",
+        chainId: 2810,
+        urls: {
+          apiURL: "https://explorer-api-holesky.morphl2.io/api?",
+          browserURL: "https://explorer-holesky.morphl2.io/",
+        },
+      },
+    ],
   },
 };
