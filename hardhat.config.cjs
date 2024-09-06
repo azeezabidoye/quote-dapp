@@ -3,7 +3,7 @@ require("@nomicfoundation/hardhat-verify");
 require("dotenv").config();
 require("hardhat-deploy");
 
-const { PRIVATE_KEY } = process.env;
+const { PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      morphTestnet: "anything",
+      morphTestnet: ETHERSCAN_API_KEY,
     },
     customChains: [
       {
@@ -39,5 +39,8 @@ module.exports = {
         },
       },
     ],
+  },
+  sourcify: {
+    enabled: true,
   },
 };
