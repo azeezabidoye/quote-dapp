@@ -1,5 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomicfoundation/hardhat-verify");
+require("solidity-coverage");
 require("dotenv").config();
 require("hardhat-deploy");
 
@@ -38,4 +39,9 @@ module.exports = {
       },
     ],
   },
+  // sourcify: {
+  //   enabled: true,
+  //   apiUrl: "https://explorer-api-holesky.morphl2.io/api?",
+  //   browserUrl: "https://explorer-holesky.morphl2.io/",
+  // },
 };
