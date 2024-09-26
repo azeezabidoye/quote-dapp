@@ -24,7 +24,7 @@ contract QuoteDapp {
 
     function getQuote(uint _index) public view returns (string memory, string memory) {
         // Check for availability of quote
-        if (_index > quotes.length && quotes.length != 0) {
+        if (_index > quotes.length && quotes.length) {
             revert QuoteNotFound();
         }
 
